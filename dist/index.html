@@ -1,44 +1,98 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>HW11 OLD McDONALD</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/vendor.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <title>HW11 OLD McDONALD</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/vendor.css">
 
-    <script src="scripts/vendor/modernizr.js"></script>
-  </head>
-  <body>
+  <link rel="stylesheet" href="styles/main.css">
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
+  <script src="scripts/vendor/modernizr.js"></script>
+</head>
 
-        <li>Sass</li>
+<body>
 
+  <div id="wrapper">
 
-        <li>Modernizr</li>
+    <div>
 
+      <h1>Old MacDonald Had a Farm</h1>
 
-        <li>Bourbon & Neat</li>
+      <p>Old MacDonald had a farm,</p>
+      <p>E-I-E-I-O.</p>
 
+      <p>And on his farm he had some
+        <%=a nimal %>,</p>
+      <p>E-I-E-I-O.</p>
 
-        <li>UnderscoreJS</li>
+      <p>With a
+        <%=s ound %>,
+          <%=s ound %>here,</p>
+      <p>And a
+        <%=s ound %>,
+          <%=s ound %>there,</p>
+      <p>Here a
+        <%=s ound %>, there a
+          <%=s ound %>,</p>
+      <p>Everywhere a
+        <%=s ound %>,
+          <%=s ound %>,</p>
 
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
+      <p>Old MacDonald had a farm,</p>
+      <p>E-I-E-I-O.</p>
+
     </div>
 
-    <script src="scripts/vendor.js"></script>
 
-        <script src="scripts/main.js"></script>
+    <select id="optBox">
+
+    </select>
+
+    <script type="text/template" id="optLst">
+      < option class = "option" > <%= option %> < /option>
+    </script>
+
+
+
+    <div>
+      Animals:
+      <input id="animal" type="text" name="name">
+      <br>Sound:
+      <input id="sound" type="text" name="sound">
+      <br>
+      <input class="update" type="submit" value="add">
+    </div>
+
+    <div>
+      <input class="clearAll" type="submit" value="Clear All">
+    </div>
+
+    <div>
+      <input class="clear" type="submit" value="Clear Selected">
+    </div>
+
+
+  </div>
+
+  <!-- 2. Duck - quack
+1. chicks - chick
+3. Turkey - gobble
+4. Pig - oink, oink
+5. Cow - moo, moo
+6. Cat -meow, meow
+7. Mule - Heehaw
+8. Dog - bow wow
+9. Turtle - nerp, nerp
+ -->
+
+  <script src="scripts/vendor.js"></script>
+
+  <script src="scripts/main.js"></script>
 </body>
+
 </html>
