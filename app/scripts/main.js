@@ -24,7 +24,7 @@ function renderOption(item) {
 
 }
 
-$(".update").on("click", function() {
+$(".add").on("click", function() {
   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
     var duplicates = _.find(item, function(i) {
       return $("#animal").val() == i.animal;
@@ -80,7 +80,16 @@ $(".update").on("click", function() {
   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
     _.each(item, function(item) {
       if ($("#animal").val() == item.animal) {
-        var id = item._id;
+        $.ajax({
+          type: "PUT",
+          dataType: "json",
+          data: {"sound": $("#sound").val()},
+          url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
+
+        });
+
+
+
 
 
 
