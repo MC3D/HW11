@@ -6,16 +6,16 @@
 
 
 body {
-  width: 100%;
+  background-color: #87ceeb
+}
 
-  body * {
-    margin: 0;
-    padding: 0;
-    }
-  }
+.box {
+  width: 200px;
+}
 
-
-
-wrapper {
+#container {
   margin: 0 auto;
-  }
+  text-align: -webkit-center;
+  vertical-align: middle;
+  width: 500px;
+}

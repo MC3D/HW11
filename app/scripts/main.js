@@ -24,6 +24,27 @@ function renderOption(item) {
 
 }
 
+//
+// $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
+//   _.each(item, function(item) {
+//     if ($("#optBox").text == item.animal) {
+//       var data = {
+//         animal: item.animal,
+//         sound: item.sound
+//       };
+//       renderTemplate('#lyrics', '#song', data);
+//     }
+//   });
+// });
+
+
+
+
+
+
+
+
+
 $(".add").on("click", function() {
   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
     var duplicates = _.find(item, function(i) {
