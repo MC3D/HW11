@@ -73,8 +73,22 @@ $(".clear-all").on("click", function() {
   }); // click
 });
 
-
-
+$(".clear").on("click", function() {
+  $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
+    _.each(item, function(item) {
+      if ($("#optBox").val() == item.animal) {
+        $.ajax({
+          type: "DELETE",
+          dataType: "json",
+          data: {
+            "sound": $("#sound").val()
+          },
+          url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
+        });
+      }
+    });
+  });
+});
 
 $(".update").on("click", function() {
   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
@@ -83,50 +97,14 @@ $(".update").on("click", function() {
         $.ajax({
           type: "PUT",
           dataType: "json",
-          data: {"sound": $("#sound").val()},
+          data: {
+            "sound": $("#sound").val()
+          },
           url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
-
         });
-
-
-
-
-
-
-
       }
-
-
-
     });
   });
 });
 
-
-
-
-
-
-
-
-
-//
-//
-// $.ajax("http://tiny-pizza-server.herokuapp.com/").done(function(item) {
-//   var userData = {
-//       avatar: item.avatar_url,
-//       avatar_url: item.html_url,
-//       username: item.login,
-//       name: item.name,
-//       memberSince: moment(item.created_at).format("MMM DD, YYYY"),
-//       followers: item.followers,
-//       followers_url: item.followers_url,
-//       following: item.following,
-//       following_url: item.following_url
-//   };
-//
-//       //renderTemplate('#header-user', '#header-block', userData);
-// });
-//
 //  event.preventDefault();
-// vebaze/1/edit
