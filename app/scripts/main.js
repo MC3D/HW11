@@ -74,7 +74,7 @@ $(".add").on("click", function() {
     } // if
 
   }); // main done
-}); // click
+}); // click window.location.reload
 
 // http get data
 // call functin _it_id {delete}
