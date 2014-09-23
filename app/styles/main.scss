@@ -5,17 +5,15 @@
 // Custom Styles
 
 
-body {
-  background-color: #87ceeb
+#container {
+  background-color: #87ceeb;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: -webkit-center;
+  vertical-align: middle;
+  width: 500px;
 }
 
 .box {
   width: 200px;
-}
-
-#container {
-  margin: 0 auto;
-  text-align: -webkit-center;
-  vertical-align: middle;
-  width: 500px;
 }
