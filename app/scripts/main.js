@@ -93,21 +93,21 @@ $(".clear").on("click", function() {
   }
 });
 
-// $(".update").on("click", function() {
-//   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
-//     _.each(item, function(item) {
-//       if ($("#animal").val() == item.animal) {
-//         $.ajax({
-//           type: "PUT",
-//           dataType: "json",
-//           data: {
-//             "sound": $("#sound").val()
-//           },
-//           url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
-//         });
-//       }
-//     });
-//   });
-// });
-//
+$(".update").on("click", function() {
+  $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
+    _.each(item, function(item) {
+      if ($("#optionBox").val() == item.animal) {
+        $.ajax({
+          type: "PUT",
+          dataType: "json",
+          data: {
+            "sound": prompt("What sound do " + $("#optionBox").val() + " make?")
+          },
+          url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
+        });
+      }
+    });
+  });
+});
+
 // //  event.preventDefault();
