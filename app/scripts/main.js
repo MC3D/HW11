@@ -110,4 +110,14 @@ $(".update").on("click", function() {
   });
 });
 
+$("#optionBox").change(function() {
+  $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
+    var input = {
+      animal: $("#optionBox").val(),
+      sound: 'moo'
+    };
+    renderTemplate('#lyrics', '#song', input);
+  });
+});
+
 // //  event.preventDefault();
