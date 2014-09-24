@@ -2,16 +2,12 @@
   'use strict';
 })();
 
-
-
 function renderTemplate(templateId, location, model) {
   var templateString = $(templateId).text();
   var templateFunction = _.template(templateString);
   var renderedTemplate = templateFunction(model);
   $(location).append(renderedTemplate);
 }
-
-
 
 //DOCUMENT READY EVENT: ADDS FIRST OBJECT {ANIMAL, SOUND} TO SONG AND LOADS LISTBOX
 $(document).ready($.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
@@ -20,8 +16,6 @@ $(document).ready($.ajax("http://tiny-pizza-server.herokuapp.com/collections/old
   renderTemplate('#lyrics', '#song', firstAnimal);
   //LOADS ALL OBJECTS INTO LISTBOX (see function renderOption below)
 }).done(renderOption));
-
-
 
 //CLEARS LISTBOX, THEN LOADS ALL OBJECTS {ANIMALS, SOUNDS} INTO LISTBOX
 function renderOption(item) {
@@ -33,8 +27,6 @@ function renderOption(item) {
     renderTemplate('#optionList', '#optionBox', data);
   });
 }
-
-
 
 //ADDS NEW ANIMALS TO THE LIST IF THEY DON'T ALREADY EXIST
 $(".add").on("click", function() {
@@ -67,8 +59,6 @@ $(".add").on("click", function() {
   });
 });
 
-
-
 // //deletes all animals ... remove ... always want one for the song to display
 // $(".clear-all").on("click", function() {
 //   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
@@ -83,24 +73,25 @@ $(".add").on("click", function() {
 //   }); // click
 // });
 
-
-
 //DELETES LISTBOX SELECTION
 $(".clear").on("click", function() {
-   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
-     _.each(item, function(item) {
-       if ($("#optionBox").val() == item.animal) {
-         $.ajax({
-           type: "DELETE",
-           dataType: "json",
-           url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
-         });
-       }
-     });
-   });
- });
-
-
+  if ($('#optionBox option').length == 1) {
+    alert('Must keep at least one item in the list!');
+  } else {
+    $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
+      _.each(item, function(item) {
+        if ($("#optionBox").val() == item.animal) {
+          $.ajax({
+            type: "DELETE",
+            dataType: "json",
+            url: "http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady/" + item._id,
+          });
+        }
+      });
+      $('#optionBox :selected').remove();
+    });
+  }
+});
 
 // $(".update").on("click", function() {
 //   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/oldmcdonaldmady").done(function(item) {
